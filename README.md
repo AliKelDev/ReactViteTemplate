@@ -3,7 +3,6 @@
 A modern, sleek React template featuring a gorgeous purple-pink gradient design system, built-in project showcasing, and ready-to-use components. Perfect for portfolios, agency websites, and project demonstrations.
 
 ![Made by Alice Leiser](https://img.shields.io/badge/Made%20by-Alice%20Leiser-purple)
-![License](https://img.shields.io/badge/license-MIT-blue)
 ![React](https://img.shields.io/badge/React-18-61dafb)
 ![Tailwind](https://img.shields.io/badge/Tailwind%20CSS-3-38bdf8)
 
@@ -96,10 +95,6 @@ The template is fully responsive with breakpoints for:
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🌟 Show Your Support
 
