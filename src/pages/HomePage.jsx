@@ -66,7 +66,7 @@ const InstallGuide = () => (
     </div>
     <div className="text-center mt-4">
       <a 
-        href="https://aliceleiserblog.netlify.app"
+        href="https://aliceleiserblog.netlify.app/blog/how-to-build-your-professional-website-in-10-minutes"
         className="text-purple-300 hover:text-pink-400 transition-colors inline-flex items-center gap-2"
       >
         For detailed instructions, check out my blog <ExternalLink className="w-4 h-4" />
