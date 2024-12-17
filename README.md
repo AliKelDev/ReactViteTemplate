@@ -24,7 +24,7 @@ A modern, production-ready React template featuring a stunning purple-pink gradi
 ## ✨ Features
 
 ### Design & UX
-- 🎨 Beautiful purple-pink gradient design system
+- 🎨 Beautiful indigo gradient design system
 - 🌟 Modern glassmorphism effects
 - 📱 Fully responsive design for all devices
 - ⚡ Optimized performance with 90+ Lighthouse score
