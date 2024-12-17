@@ -1,109 +1,172 @@
 import React, { useState } from 'react';
-import { Bomb, Send, Save, Zap } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Send, Save, ArrowLeft, CheckCircle, AlertCircle, Coffee } from 'lucide-react';
 
 const Example2Page = () => {
-  const [showRefusal, setShowRefusal] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
+  const [formData, setFormData] = useState({
+    name: 'John Anderson',
+    email: 'j.anderson@company.com',
+    message: 'Hi there,\n\nI am interested in discussing a potential collaboration on an upcoming project. Our team is looking for expertise in web development and system architecture.\n\nLooking forward to your response.\n\nBest regards,\nJohn'
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setShowRefusal(true);
-    setTimeout(() => setShowRefusal(false), 3000);
+    setShowNotification(true);
+    setTimeout(() => setShowNotification(false), 3000);
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
 
   return (
-    <div className="min-h-screen bg-black text-white pt-20 px-4">
-      <div className="max-w-md mx-auto">
+    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-indigo-900/20 to-slate-900 text-white pt-20 px-4">
+      <motion.a
+        href="/"
+        className="fixed top-8 left-8 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900/80 border border-slate-700/50 text-slate-300 hover:text-white hover:border-indigo-500/30 backdrop-blur-sm transition-colors z-50"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        whileHover={{ x: -5 }}
+      >
+        <ArrowLeft className="w-4 h-4" />
+        <span>Back to Home</span>
+      </motion.a>
+
+      <motion.div 
+        className="max-w-2xl mx-auto"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4 relative inline-block">
-            <span className="bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-transparent bg-clip-text">
-              ECHO Log Transmission
+          <motion.h1 
+            className="text-4xl md:text-5xl font-bold mb-4 relative inline-block"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <span className="bg-gradient-to-r from-white via-indigo-200 to-white text-transparent bg-clip-text">
+              Contact Us
             </span>
-            <Bomb className="absolute -top-6 -right-8 w-6 h-6 text-yellow-500 animate-pulse" />
-          </h1>
-          <p className="text-orange-300 italic">
-            "This message better be important, Vault Hunter!"
-          </p>
+          </motion.h1>
+          <motion.p 
+            className="text-slate-300 text-lg"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            Let's discuss your next project
+          </motion.p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <motion.form 
+          onSubmit={handleSubmit} 
+          className="space-y-6 bg-slate-900/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700/50"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+        >
           <div className="space-y-2">
-            <label className="block text-sm font-medium text-orange-300">
-              DESIGNATION (Come on, minion!)
+            <label className="block text-sm font-medium text-indigo-300">
+              Full Name
             </label>
             <input
               type="text"
-              defaultValue="Vault Hunter"
-              className="w-full p-3 rounded-lg border border-yellow-500/30 bg-orange-900/10 backdrop-blur-sm 
-                       text-white placeholder-orange-400 focus:border-yellow-500/50 focus:ring-yellow-500/20 
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full p-3 rounded-lg border border-slate-700/50 bg-slate-800/50 
+                       text-white placeholder-slate-400 focus:border-indigo-500/50 focus:ring-indigo-500/20 
                        transition-all duration-300"
             />
           </div>
 
           <div className="space-y-2">
-            <label className="block text-sm font-medium text-orange-300">
-              ECHO ID (EXPLOSIONS?!)
+            <label className="block text-sm font-medium text-indigo-300">
+              Email Address
             </label>
             <input
               type="email"
-              defaultValue="badass@pandora.vault"
-              className="w-full p-3 rounded-lg border border-yellow-500/30 bg-orange-900/10 backdrop-blur-sm 
-                       text-white placeholder-orange-400 focus:border-yellow-500/50 focus:ring-yellow-500/20 
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full p-3 rounded-lg border border-slate-700/50 bg-slate-800/50 
+                       text-white placeholder-slate-400 focus:border-indigo-500/50 focus:ring-indigo-500/20 
                        transition-all duration-300"
             />
           </div>
 
           <div className="space-y-2">
-            <label className="block text-sm font-medium text-orange-300">
-              MESSAGE (Make it EXPLOSIVE!)
+            <label className="block text-sm font-medium text-indigo-300">
+              Message
             </label>
             <textarea
-              defaultValue="EXPLOSION NOISE! This message contains 420% more BADASSITUDE than the average message!
-THAT SENTENCE HAD TOO MANY SYLLABLES! APOLOGIZE!
-PLOT TWIST: EVERYTHING EXPLODES!"
-              rows={4}
-              className="w-full p-3 rounded-lg border border-yellow-500/30 bg-orange-900/10 backdrop-blur-sm 
-                       text-white placeholder-orange-400 focus:border-yellow-500/50 focus:ring-yellow-500/20 
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              rows={6}
+              className="w-full p-3 rounded-lg border border-slate-700/50 bg-slate-800/50 
+                       text-white placeholder-slate-400 focus:border-indigo-500/50 focus:ring-indigo-500/20 
                        transition-all duration-300"
             />
           </div>
 
           <div className="flex gap-4">
-            <button
+            <motion.button
               type="submit"
-              className="flex-1 px-6 py-3 bg-gradient-to-r from-yellow-600 to-red-600 rounded-lg 
-                       font-mono text-lg hover:from-yellow-500 hover:to-red-500 transition-all 
+              className="flex-1 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg 
+                       font-medium text-lg hover:from-indigo-500 hover:to-purple-500 transition-all 
                        flex items-center justify-center gap-2 group"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <Send className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-              TRANSMIT!
-            </button>
-            <button
+              <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              Send Message
+            </motion.button>
+            <motion.button
               type="button"
-              className="px-6 py-3 border border-yellow-500/30 rounded-lg font-mono text-lg 
-                       hover:border-yellow-500/50 transition-all flex items-center justify-center"
+              className="px-6 py-3 border border-slate-700/50 rounded-lg font-medium text-lg 
+                       hover:border-indigo-500/50 transition-all flex items-center justify-center"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               <Save className="w-5 h-5" />
-            </button>
+            </motion.button>
           </div>
-        </form>
+        </motion.form>
 
-        {showRefusal && (
-          <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="bg-black border-2 border-yellow-400 text-yellow-400 animate-bounce p-4 rounded-lg flex items-center gap-2">
-              <Zap className="w-4 h-4" />
-              <p className="font-mono text-lg">
-                PLOT TWIST: MESSAGE FAILED! EXPLOSION?!
-              </p>
-            </div>
-          </div>
-        )}
+        <AnimatePresence>
+          {showNotification && (
+            <motion.div 
+              className="fixed bottom-8 right-8 bg-slate-900/95 border border-indigo-500/30 text-white p-4 rounded-lg shadow-lg backdrop-blur-sm"
+              initial={{ opacity: 0, y: 50, scale: 0.3 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.5 }}
+              transition={{ type: "spring", bounce: 0.4 }}
+            >
+              <div className="flex items-center gap-3">
+                <CheckCircle className="w-5 h-5 text-indigo-400" />
+                <span className="font-medium">Message sent successfully!</span>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-        <div className="mt-8 text-center text-sm text-orange-400">
-          REMINDER: ALL MESSAGES MUST CONTAIN AT LEAST 47% MORE EXPLOSIONS!
-          <br />
-          TORGUE APPROVES THIS FORM! MEEDLY-MEEDLY-MOWWWWW! 🎸
-        </div>
-      </div>
+        <motion.div 
+          className="mt-8 text-center text-sm text-slate-400 space-y-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+        >
+          <p>We typically respond within 24-48 business hours.</p>
+          <p className="flex items-center justify-center gap-2">
+            <Coffee className="w-4 h-4" />
+            <span>Available for meetings and consultations</span>
+          </p>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };
