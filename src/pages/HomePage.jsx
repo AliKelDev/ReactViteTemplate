@@ -291,22 +291,22 @@ const HomePage = () => {
               Vite Template
             </motion.a>
             <div className="flex gap-6">
-              {['Documentation', 'Examples', 'GitHub'].map((item, index) => (
-                <motion.a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="text-indigo-300 hover:text-indigo-400 transition-colors relative group"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {item}
-                  <motion.span
-                    className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-400 to-indigo-600 group-hover:w-full transition-all duration-300"
-                    whileHover={{ width: "100%" }}
-                  />
-                </motion.a>
-              ))}
-            </div>
+  {['Example 1', 'Example 2', 'Example 3'].map((item, index) => (
+    <motion.a
+      key={item}
+      href={`/exemple${index + 1}`}
+      className="text-indigo-300 hover:text-indigo-400 transition-colors relative group"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      {item}
+      <motion.span
+        className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-400 to-indigo-600 group-hover:w-full transition-all duration-300"
+        whileHover={{ width: "100%" }}
+      />
+    </motion.a>
+  ))}
+</div>
           </div>
         </div>
       </motion.nav>
