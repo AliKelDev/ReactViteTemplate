@@ -8,7 +8,6 @@ A modern, production-ready React template featuring a stunning purple-pink gradi
 
 [View Demo](https://react-vite-alikeldev.netlify.app/) • [Documentation](#-table-of-contents) • [Professional Services](https://webpixelle3.netlify.app/)
 
-![Template Preview](https://raw.githubusercontent.com/AliKelDev/ReactViteTemplate/main/preview.png)
 
 ## 📋 Table of Contents
 - [✨ Features](#-features)
