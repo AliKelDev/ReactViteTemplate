@@ -1,6 +1,6 @@
 # 🚀 React + Vite Template Project
 
-A modern, production-ready React template featuring a stunning purple-pink gradient design system. Perfect for portfolios, agency websites, and project showcases.
+A modern, production-ready React template featuring a stunning indigo gradient design system. Perfect for portfolios, agency websites, and project showcases.
 
 [![Live Demo](https://img.shields.io/badge/demo-live-blue.svg)](https://react-vite-alikeldev.netlify.app/)
 [![GitHub Stars](https://img.shields.io/github/stars/AliKelDev/ReactViteTemplate?style=social)](https://github.com/AliKelDev/ReactViteTemplate)
@@ -24,7 +24,7 @@ A modern, production-ready React template featuring a stunning purple-pink gradi
 ## ✨ Features
 
 ### Design & UX
-- 🎨 Beautiful indigo gradient design system
+- 🎨 Beautiful purple-pink gradient design system
 - 🌟 Modern glassmorphism effects
 - 📱 Fully responsive design for all devices
 - ⚡ Optimized performance with 90+ Lighthouse score
@@ -37,9 +37,9 @@ A modern, production-ready React template featuring a stunning purple-pink gradi
 
 ### Developer Experience
 - 📦 Zero configuration needed
-- 🔧 TypeScript ready
 - 🎯 ESLint + Prettier setup
 - 📝 Comprehensive documentation
+- ⚡ Fast refresh in development
 
 ## 🚀 Quick Start
 
@@ -81,7 +81,6 @@ npm run build
 | Lucide Icons | Icons |
 | ESLint | Code Quality |
 | Prettier | Code Formatting |
-| TypeScript | Type Safety |
 
 ## 📦 Core Components
 
@@ -194,8 +193,8 @@ export const CustomCard = ({ title, children }) => {
 ```
 
 ### 3. Navigation Setup
-Update `src/config/navigation.ts`:
-```typescript
+Update `src/config/navigation.js`:
+```javascript
 export const navigation = {
   main: [
     { name: 'Home', href: '/' },
@@ -212,7 +211,7 @@ export const navigation = {
 ## ❓ FAQ
 
 ### Can I use this template for commercial projects?
-Yes! This template is licensed under MIT, allowing commercial use.
+Yes! 
 
 ### How do I deploy this template?
 We recommend using Netlify or Vercel. Both platforms offer easy deployment from Git:
@@ -233,6 +232,9 @@ We recommend using Netlify or Vercel. Both platforms offer easy deployment from 
 - 🤝 Follow me on [Twitter](https://x.com/AliLeisR) for updates
 - 💼 Check out my [professional services](https://webpixelle3.netlify.app/)
 
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
