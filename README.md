@@ -1,1 +1,1 @@
-# ReactViteTemplate
+No longer updated, check out https://github.com/AliKelDev/ReactVite-Template-V2 !
